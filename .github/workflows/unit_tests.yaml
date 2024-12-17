@@ -52,7 +52,11 @@ jobs:
           # Needed for unit tests
           sudo apt-get -y install \
               coreutils cvs gfortran graphviz gnupg2 mercurial ninja-build \
-              cmake bison libbison-dev kcov
+              cmake bison libbison-dev
+    # On ubuntu 24.04, kcov was removed. It may come back in some future Ubuntu
+    - name: Install kcov
+      run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew install kcov
     - name: Install Python packages
       run: |
           pip install --upgrade pip setuptools pytest pytest-xdist pytest-cov
@@ -99,7 +103,11 @@ jobs:
       run: |
           sudo apt-get -y update
           # Needed for shell tests
-          sudo apt-get install -y coreutils kcov csh zsh tcsh fish dash bash
+          sudo apt-get install -y coreutils csh zsh tcsh fish dash bash
+    # On ubuntu 24.04, kcov was removed. It may come back in some future Ubuntu
+    - name: Install kcov
+      run: |
+        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)" && brew install kcov
     - name: Install Python packages
       run: |
           pip install --upgrade pip setuptools pytest coverage[toml] pytest-xdist

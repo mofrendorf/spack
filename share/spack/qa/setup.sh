@@ -38,6 +38,8 @@ if [[ "$COVERAGE" == "true" ]]; then
     fi
 fi
 
+. "${QA_DIR}/kcov-alias.sh"
+
 #
 # Description:
 #     Check to see if dependencies are installed.
@@ -51,7 +53,7 @@ fi
 #     One or more dependencies. Must use name of binary.
 check_dependencies() {
     for dep in "$@"; do
-        if ! which $dep &> /dev/null; then
+        if ! command -v $dep &> /dev/null; then
             # Map binary name to package name
             case $dep in
                 sphinx-apidoc|sphinx-build)
