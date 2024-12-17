@@ -20,14 +20,19 @@ class Jdk(Package):
     maintainers("justintoo")
 
     version(
+        "22.0.2",
+        sha256="17feecbbbbd8f9a3e27d7dd7689b02ba29ebfa98af59034d26812d0a671ce194",
+        url="https://download.oracle.com/java/22/archive/jdk-22_linux-x64_bin.tar.gz",
+    )
+    version(
         "21.0.2",
         sha256="9f1f4a7f25ef6a73255657c40a6d7714f2d269cf15fb2ff1dc9c0c8b56623a6f",
-        url="https://download.oracle.com/java/21/latest/jdk-21_linux-x64_bin.tar.gz",
+        url="https://download.oracle.com/java/21/archive/jdk-21_linux-x64_bin.tar.gz",
     )
     version(
         "17.0.10",
         sha256="e4fb2df9a32a876afb0a6e17f54c594c2780e18badfa2e8fc99bc2656b0a57b1",
-        url="https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz",
+        url="https://download.oracle.com/java/17/archive/jdk-17_linux-x64_bin.tar.gz",
     )
 
     provides("java@21", when="@21")
